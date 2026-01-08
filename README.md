@@ -5,6 +5,8 @@ The password is device specific because it is derived from the device's MAC addr
 
 Tested with firmware version RP4423
 
+![Screenshot](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/blob/main/screenshot.png?raw=true)
+
 Usage: 
 
 -Launch the program and enter your device's MAC address (XX:XX:XX:XX:XX:XX) when prompted
