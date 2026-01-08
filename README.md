@@ -9,6 +9,8 @@ Usage:
 
 -Launch the program and enter your device's MAC address (XX:XX:XX:XX:XX:XX) when prompted
 
--Use the generated password to login in the web interface ( http://192.168.1.1 )
+-Copy the generated password and use it to login in the web interface ( http://192.168.1.1 )
 
 ***Username:  admin
+
+💾 [**Download Link**](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/releases/download/release/HG6145F1-DZA-Web-Admin-Pass.exe) 💾
