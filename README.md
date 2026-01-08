@@ -15,4 +15,4 @@ Usage:
 
 ***Username:  admin
 
-💾 [**Download Link**](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/releases/download/release/HG6145F1-DZA-Web-Admin-Pass.exe) 💾
+💾 [**Download Link**](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/releases/download/v0.1.1/HG6145F1-DZA-Web-Admin-Pass.exe) 💾
