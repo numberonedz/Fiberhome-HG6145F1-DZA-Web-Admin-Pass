@@ -1,19 +1,44 @@
-# Fiberhome HG6145F1 DZA Web Admin Pass Generator
-Generates web admin password for Fiberhome HG6145F1 ONU available in Algeria 
+# Fiberhome HG6145F1 (Algeria) Password Generator
 
-The password is device specific because it is derived from the device's MAC address
+This repository contains tools to generate the administrative password for Fiberhome HG6145F1 routers (common in Algeria) using the device's MAC address.
 
-Tested with HG6145F1 RP4423
-Also works on HG6145D2 RP2902 (user reported)
+## Tools Included
 
-![Screenshot](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/blob/main/screenshot.png?raw=true)
+### 1. Standalone GUI Application (`gui/`)
+The easiest way to use the tool. It's a single executable file that launches a local web interface.
+- **Features**: Auto-detects your router's MAC address, generates password instantly.
+- **Usage**:
+    1. Download `fiberhome_gui.exe` (if available in releases) or build it yourself.
+    2. Run the executable. It opens your browser automatically.
+    3. Click "Detect" or enter MAC manually.
 
-Use provided python code or download windows binary from [**here**](https://github.com/numberonedz/Fiberhome-HG6145F1-DZA-Web-Admin-Pass/releases/latest)
+### 2. PHP Web Application (`web/`)
+For hosting on a web server (e.g., XAMPP, WAMP, or a live server).
+- **Features**: History log (MySQL), mobile-friendly interface.
+- **Setup**:
+    1. Copy contents of `web/` to your web server (e.g., `htdocs`).
+    2. Create a database named `fiberhome_db` and import `setup_db.sql`.
+    3. Configure `db.php` if you have a database password.
 
-Usage: 
+### 3. CLI Script (`cli/`)
+A simple Python script for command-line usage.
+- **Usage**: `python fiberhome_keygen.py`
 
--Launch the program and enter your device's MAC address (XX:XX:XX:XX:XX:XX) when prompted
+## Building from Source
 
--Copy the generated password and use it to login in the web interface ( http://192.168.1.1 )
+To build the standalone executables on Windows:
 
-***Username:  admin
+1. Install Python 3.x.
+2. Install dependencies:
+   ```bash
+   pip install flask pyinstaller
+   ```
+3. Run the build script:
+   ```cmd
+   cd build
+   build_executables.bat
+   ```
+4. Find the `.exe` files in the `dist` folder.
+
+## Credits
+Based on the logic by Adel/NumberOneDz.

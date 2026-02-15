@@ -1,0 +1,220 @@
+/* Glassmorphism Design */
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --background: #111;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    /* Very subtle white */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-color: #eee;
+    --input-bg: rgba(0, 0, 0, 0.3);
+    --hover-glow: 0 0 20px rgba(106, 17, 203, 0.5);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    /* Take up remaining space */
+    padding: 12px;
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.detect-btn {
+    width: auto;
+    /* Not full width */
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
+    font-size: 0.9rem;
+}
+
+.detect-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: none;
+}
+
+
+input[type="text"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-glow);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    display: none;
+    /* Hidden by default */
+}
+
+.result-label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    color: #4cd137;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.history-section {
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.history-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.5rem;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+}
+
+.history-mac {
+    color: #aaa;
+}
+
+.history-pass {
+    color: #fff;
+    font-family: monospace;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.error-msg {
+    color: #ff4757;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+}
