@@ -1,5 +1,17 @@
+#!/usr/bin/env python3
+
+"""
+Fiberhome HG6145F1 Web Admin Password Generator
+Firmware RP4423 (Algérie Télécom ISP)
+07-01-2026 By Adel/NumberOneDz
+Github: @numberonedz
+
+Usage: run the script and enter device's mac address or pass it as an argument
+"""
+
 import hashlib
 import re
+import sys
 
 UPPER = "ACDFGHJMNPRSTUWXY"
 LOWER = "abcdfghjkmpstuwxy"
@@ -8,7 +20,6 @@ SYMBOL = "!@$&%"
 
 def mac_to_pass(mac: str) -> str:
     if not re.fullmatch(r"([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}", mac):
-        print("\nInvalid MAC format (expected XX:XX:XX:XX:XX:XX)")
         return ""
 
     md5 = hashlib.md5()
@@ -41,7 +52,6 @@ def mac_to_pass(mac: str) -> str:
         elif case_type == 3:
             password[i] = SYMBOL[4 - (v % 5)]
 
-    # --- Step 4: enforce all character classes
     p0 = (vals[16] + 1) % 16
     p1 = (vals[17] + 1) % 16
     while p1 == p0: p1 = (p1 + 1) % 16
@@ -57,13 +67,27 @@ def mac_to_pass(mac: str) -> str:
     password[p2] = DIGIT[6 - (vals[18] % 7)]
     password[p3] = SYMBOL[4 - (vals[19] % 5)]
 
-    return ''.join(password)
-
-if __name__ == "__main__":
+    return ''.join(password)  
+    
+def main():
     print("Fiberhome HG6145F1 (Algeria) Web Admin Password Generator")
     print("Firmware Version RP4423 | Username:  admin")
     print("07-01-2026 By Adel/NumberOneDz")
-    print("_____________________________________This program is free\n\n")
-    mac = date = input("Enter MAC address (XX:XX:XX:XX:XX:XX): ").strip()
+    print("-" * 60)
+
+    if len(sys.argv) > 1:
+        mac = sys.argv[1]
+    else:
+        mac = input("Enter MAC address (XX:XX:XX:XX:XX:XX): ").strip()
+
+    password = mac_to_pass(mac.upper())
+    
+    if not password:
+        print("\nInvalid MAC format (expected XX:XX:XX:XX:XX:XX)")
+        exit(0)
+
     print("\nPassword:           " + mac_to_pass(mac.upper()))
     input("\n\nPress Enter to exit...")
+
+if __name__ == "__main__":
+    main()
